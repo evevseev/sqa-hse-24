@@ -128,7 +128,7 @@ public class Calc {
                     dB = stack.pop();
                     dA = stack.pop();
                     // Считываем первый символ
-                    switch (sTmp.charAt(1)) {
+                    switch (sTmp.charAt(0)) {
                         case '+':
                             dA += dB;
                             break;

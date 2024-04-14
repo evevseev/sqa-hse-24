@@ -57,3 +57,32 @@ MS: 2 InsertByte-Custom-; base unit: adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
             throw new CalcException("Ошибка преобразования числа " + sTmp);
         }
 ```
+
+### Ошибка 3
+[**Результат выолнения**](tests_output/03)
+
+```
+== Java Exception: java.lang.StringIndexOutOfBoundsException: Index 1 out of bounds for length 1
+        at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:55)
+        at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:52)
+        at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:213)
+        at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:210)
+        at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:98)
+        at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+        at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+        at java.base/java.lang.String.checkIndex(String.java:4832)
+        at java.base/java.lang.StringLatin1.charAt(StringLatin1.java:46)
+        at java.base/java.lang.String.charAt(String.java:1555)
+        at calc.Calc.calculate(Calc.java:131)
+        at ru.hse.CalcFuzzingTarget.fuzzerTestOneInput(CalcFuzzingTarget.java:22)
+== libFuzzer crashing input ==
+MS: 6 InsertByte-Custom-ChangeBinInt-Custom-ChangeByte-Custom-; base unit: 55b0bd069e2422eb3c8d9683f6e99768063f543f
+0x2d,0x37,0x5e,0x33,
+```
+
+#### Исправление
+В `switch (sTmp.charAt(1)) {` в `calculate` указан неверный индекс. Должен быть `0`.
+
+```java
+        switch (sTmp.charAt(0)) {
+```

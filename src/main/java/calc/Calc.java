@@ -113,6 +113,11 @@ public class Calc {
         String sTmp;
         Deque<Double> stack = new ArrayDeque<>();
         StringTokenizer st = new StringTokenizer(sIn);
+
+        if (!st.hasMoreTokens()) {
+            throw new CalcException("Нет данных для расчета");
+        }
+
         while (st.hasMoreTokens()) {
             try {
                 sTmp = st.nextToken().trim();

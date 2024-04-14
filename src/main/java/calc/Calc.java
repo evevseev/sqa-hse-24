@@ -154,8 +154,12 @@ public class Calc {
                     }
                     stack.push(dA);
                 } else {
-                    dA = Double.parseDouble(sTmp);
-                    stack.push(dA);
+                    try {
+                        dA = Double.parseDouble(sTmp);
+                        stack.push(dA);
+                    } catch (NumberFormatException e) {
+                        throw new CalcException("Ошибка преобразования числа " + sTmp);
+                    }
                 }
             } catch (CalcException e) {
                 throw new CalcException("Недопустимый символ в выражении");

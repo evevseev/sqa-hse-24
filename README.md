@@ -4,13 +4,13 @@
 ### Запуск
 
 ```bash
-./gradlew jar && ./jazzer --agent_path=libs/jazzer_standalone.jar --cp=libs/jazzer_standalone.jar --cp=build/libs/FuzzingProject-1.0-SNAPSHOT.jar --target_class=ru.hse.CalcFuzzingTarget > stdout.txt
+./gradlew jar && ./jazzer --agent_path=libs/jazzer_standalone.jar --cp=libs/jazzer_standalone.jar --cp=build/libs/FuzzingProject-1.0-SNAPSHOT.jar --target_class=ru.hse.CalcFuzzingTarget 2> stdout.txt
 ```
 
 ## Отчет
 
 ### Ошибка 1 
-[**Результат выолнения**](tests_output/01)
+[**Результат выполнения**](tests_output/01)
 
 ```
 == Java Exception: java.util.NoSuchElementException
@@ -32,7 +32,7 @@ MS: 0 ; base unit: 0000000000000000000000000000000000000000
 ```
 
 ### Ошибка 2
-[**Результат выолнения**](tests_output/02)
+[**Результат выполнения**](tests_output/02)
 
 ```
 == Java Exception: java.lang.NumberFormatException: For input string: "u"
@@ -59,7 +59,7 @@ MS: 2 InsertByte-Custom-; base unit: adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
 ```
 
 ### Ошибка 3
-[**Результат выолнения**](tests_output/03)
+[**Результат выполнения**](tests_output/03)
 
 ```
 == Java Exception: java.lang.StringIndexOutOfBoundsException: Index 1 out of bounds for length 1
@@ -88,7 +88,7 @@ MS: 6 InsertByte-Custom-ChangeBinInt-Custom-ChangeByte-Custom-; base unit: 55b0b
 ```
 
 ### Ошибка 4
-[**Результат выолнения**](tests_output/04)
+[**Результат выполнения**](tests_output/04)
 
 ```
 == Java Exception: java.lang.UnsupportedOperationException: TODO: Не забыть реализовать оператор !

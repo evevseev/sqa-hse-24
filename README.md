@@ -86,3 +86,25 @@ MS: 6 InsertByte-Custom-ChangeBinInt-Custom-ChangeByte-Custom-; base unit: 55b0b
 ```java
         switch (sTmp.charAt(0)) {
 ```
+
+### Ошибка 4
+[**Результат выолнения**](tests_output/04)
+
+```
+== Java Exception: java.lang.UnsupportedOperationException: TODO: Не забыть реализовать оператор !
+        at calc.Calc.calculate(Calc.java:151)
+        at ru.hse.CalcFuzzingTarget.fuzzerTestOneInput(CalcFuzzingTarget.java:22)
+== libFuzzer crashing input ==
+MS: 6 CrossOver-Custom-ShuffleBytes-Custom-ChangeByte-Custom-; base unit: 3c9d4bf8b1eb4c7d608aee7805d8e0c594a2f26e
+0x31,0x2a,0x31,0x32,0x2d,0x32,0x32,0x2d,0x28,0x32,0x21,0x2d,0x28,0x32,0x2d,
+```
+
+#### Исправление
+Учитывая, то что в подсказке сказано `Поддерживаются цифры, операции +,-,*,/,^,% и приоритеты в виде скобок ( и )`, операция `!` не поддерживается. Необходимо убрать остатки этой операции и попросить разработчика полноценно ее реализовать.
+
+Убрать из функции `calculate` следующие строки:
+
+```java
+    case '!':
+        throw new UnsupportedOperationException("TODO: Не забыть реализовать оператор !");
+```

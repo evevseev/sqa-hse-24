@@ -147,8 +147,6 @@ public class Calc {
                         case '^':
                             dA = Math.pow(dA, dB);
                             break;
-                        case '!':
-                            throw new UnsupportedOperationException("TODO: Не забыть реализовать оператор !");
                         default:
                             throw new CalcException("Недопустимая операция " + sTmp);
                     }

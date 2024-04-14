@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="FuzzingProject:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FuzzingProject_jar</output-path>
+    <root id="archive" name="FuzzingProject.jar">
+      <element id="module-output" name="FuzzingProject.main" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/tool/macos/jazzer_standalone.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

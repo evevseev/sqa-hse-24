@@ -10,4 +10,5 @@ repositories {
 }
 
 dependencies {
+    implementation files('libs/jazzer_standalone.jar')
 }
